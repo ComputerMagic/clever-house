@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>Розетка</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+ <link rel="stylesheet" type="text/css" href="/style.css">
+ <script>  
+        function show()  
+        {  
+
+             $.ajax({
+  
+                url: "/read/relay.php",  
+                cache: false,  
+                success: function(html){  
+                    $("#content-3").html(html); 
+                }
+             }); 
+             
+        }
+        
+        $(document).ready(function(){  
+            show();  
+            setInterval('show()',500);  
+        }); 
+        
+ 
+      function AjaxFormRequest(result_id,relay,url) {
+          debugger;
+      jQuery.ajax({
+      url:     url,
+      type:     "POST",
+      dataType: "html",
+      data: jQuery("#"+relay).serialize(),
+         });
+}
+
+
+</script>
+    
+    
+    
+</head>
+    <body>
+          <div class="r">
+          <div class="r2">
+          <div class="r3">Розетка</div>
+          </div>
+          </div>
+
+          <div class="r">
+          <div class="rl">
+          <p class="r1">Вимикач</p>
+          <div class="r2" style="font-size:35px" >
+          
+          <form  id="led" action="../write/relay.php" method="get"  >
+          <label><input type="radio" name="relay" value="on"> ON </label>
+          <label><input type="radio" name="relay" value="off"> OFF </label>
+          <br>
+          <input class="submitButton" type="submit" value="Відправити" >
+          </form>
+          
+          </div>
+          </div>
+          
+          <div class="rr">
+          <p class="r1">Стан</p>
+          <div class="r2"style="font-size:35px" >
+          <div class="r3" id="content-3"></div> 
+          </div>
+          </div>
+          
+          </div>        
+   </body>
+</html> 

@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Гараж</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+ <link rel="stylesheet" type="text/css" href="/style.css">
+ <script>  
+        function show()  
+        {  
+            $.ajax({  
+                url: "../read/am2320t.php",  
+                cache: false,  
+                success: function(html){  
+                    $("#am2320t").html(html); 
+				}
+             }); 
+           $.ajax({  
+                url: "../read/am2320h.php",  
+                cache: false,  
+                success: function(html){  
+                    $("#am2320h").html(html); 
+                }
+             }); 
+             
+             $.ajax({  
+                url: "../read/light.php",  
+                cache: false,  
+                success: function(html){  
+                    $("#light").html(html); 
+                }
+             }); 
+             
+        }
+        
+        $(document).ready(function(){  
+            show();  
+            setInterval('show()',500);  
+        }); 
+        
+
+
+</script>
+    
+    
+    
+</head>
+    <body>
+          <div class="r">
+          <div class="r2">
+          <div class="r3">Гараж</div>
+          </div>
+          </div>
+          <div class="r">
+          <p class="r1">Температура AM2320</p>
+          <div class="r2" style="display:inline-block;">
+          <div class="r3" id="am2320t"></div> 
+          <div class="r3"> C<sup>o</sup></div>
+          </div>
+          </div>
+        
+
+          <div class="r">
+          <p class="r1">Вологість AM2320</p>
+          <div class="r2" >
+          <div class="r3" id="am2320h"></div> 
+          <div class="r3"> %</div>
+          </div>
+          </div>
+
+          <div class="r">
+          <p class="r1">Освітленість</p>
+          <div class="r2" >
+          <div class="r3" id="light"></div> 
+          <div class="r3"></div>
+          </div>
+          </div>
+        
+   </body>
+</html> 

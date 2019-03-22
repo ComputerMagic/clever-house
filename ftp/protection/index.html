@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Охорона</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+ <link rel="stylesheet" type="text/css" href="/style.css">
+ <script>  
+        function show()  
+        {  
+            $.ajax({  
+                url: "/read/b.php",  
+                cache: false,  
+                success: function(html){  
+                    $("#b").html(html)
+                }
+            });
+            $.ajax({  
+                url: "/read/b1.php",  
+                cache: false,  
+                success: function(html){  
+                    $("#b1").html(html)
+                }
+            });
+            $.ajax({  
+                url: "/read/b2.php",  
+                cache: false,  
+                success: function(html){  
+                    $("#b2").html(html)
+                }
+            });
+            $.ajax({  
+                url: "/read/b3.php",  
+                cache: false,  
+                success: function(html){  
+                    $("#b3").html(html)
+                }
+            });
+             
+        }
+        
+        $(document).ready(function(){  
+            show();  
+            setInterval('show()',500);  
+        }); 
+        
+ 
+</script>
+    
+    
+    
+</head>
+    <body>
+          <div class="r">
+          <div class="r2">
+          <div class="r3">Охорона</div>
+          </div>
+          </div>
+<div class="r">
+<p class="r1">Рух</p>
+<div class="r2" style="display: inline-block;">
+<div id="b" class="r3">&nbsp;</div>
+<div class="r3"></div>
+</div>
+</div>
+<div class="r">
+<p class="r1">Геркон 1</p>
+<div class="r2">
+<div id="b1" class="r3">&nbsp;</div>
+<div class="r3"></div>
+</div>
+</div>
+<div class="r">
+<p class="r1">Геркон 2</p>
+<div class="r2">
+<div id="b2" class="r3">&nbsp;</div>
+<div class="r3"></div>
+</div>
+</div>
+<div class="r">
+<p class="r1">Геркон 3</p>
+<div class="r2">
+<div id="b3" class="r3">&nbsp;</div>
+<div class="r3"></div>
+</div>
+</div>
+</body>
+</html> 

@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Будинок</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+ <link rel="stylesheet" type="text/css" href="/style.css">
+ <script>  
+        function show()  
+        {  
+            $.ajax({  
+                url: "/read/mq2.php",  
+                cache: false,  
+                success: function(html){  
+                    $("#mq2").html(html)
+                }
+            });
+            $.ajax({  
+                url: "/read/dht22h.php",  
+                cache: false,  
+                success: function(html){  
+                    $("#dht22h").html(html)
+                }
+            });
+            $.ajax({  
+                url: "/read/dht22t.php",  
+                cache: false,  
+                success: function(html){  
+                    $("#dht22t").html(html)
+                }
+            });
+            $.ajax({  
+                url: "/read/bmp180.php",  
+                cache: false,  
+                success: function(html){  
+                    $("#bmp180").html(html)
+                }
+            });
+             
+        }
+        
+        $(document).ready(function(){  
+            show();  
+            setInterval('show()',500);  
+        }); 
+        
+ 
+</script>
+    
+    
+    
+</head>
+    <body>
+          <div class="r">
+          <div class="r2">
+          <div class="r3">Будинок</div>
+          </div>
+          </div>
+<div class="r">
+<p class="r1">Температура DHT22</p>
+<div class="r2" style="display: inline-block;">
+<div id="dht22t" class="r3">&nbsp;</div>
+<div class="r3">C<sup>o</sup></div>
+</div>
+</div>
+<div class="r">
+<p class="r1">Вологість DHT22</p>
+<div class="r2">
+<div id="dht22h" class="r3">&nbsp;</div>
+<div class="r3">%</div>
+</div>
+</div>
+<div class="r">
+<p class="r1">Тиск BMP180</p>
+<div class="r2">
+<div id="bmp180" class="r3">&nbsp;</div>
+<div class="r3">мм Рт ст</div>
+</div>
+</div>
+<div class="r">
+<p class="r1">Вуглекислий газ MQ2</p>
+<div class="r2">
+<div id="mq2" class="r3">&nbsp;</div>
+<div class="r3">%<sup>oо</sup></div>
+</div>
+</div>
+</body>
+</html> 
